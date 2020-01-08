@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +53,7 @@ public class MyView extends SurfaceView implements SurfaceHolder.Callback, View.
         paint.setColor(Color.DKGRAY);
         paint.setTextSize(40);
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(5);
+        paint.setStrokeWidth(13);
         setOnTouchListener(this);
     }
 
@@ -134,9 +135,10 @@ public class MyView extends SurfaceView implements SurfaceHolder.Callback, View.
             MediaScannerConnection.scanFile(getContext(),new String[]{filePath}, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
                 public void onScanCompleted(String path, Uri uri) {
-                    Log.e("young","保存图片成功");
+                    Log.e("young","图片保存成功");
                 }
             });
+            YoungToast.showTextToast(getContext(),"图片保存成功");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if(grantResults[0] == PackageManager.PERMISSION_DENIED){
                     Toast.makeText(this,"拒绝权限无法使用应用",Toast.LENGTH_LONG).show();
-                    finish();
+                    //finish();
                 }
                 break;
         }
